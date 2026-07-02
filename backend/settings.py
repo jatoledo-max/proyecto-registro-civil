@@ -25,14 +25,15 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tv=1cz4bwe=7+7w^yk%mxluinc3dr6r=i2mdbc*iysjq^eo%=j'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-tv=1cz4bwe=7+7w^yk%mxluinc3dr6r=i2mdbc*iysjq^eo%=j')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
-CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    h.strip() for h in os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',') if h.strip()
+]
 
 
 # Application definition
