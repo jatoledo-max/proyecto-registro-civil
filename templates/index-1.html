@@ -6,14 +6,14 @@
 {% block contenido %}
 
 <!-- Buscador -->
-<div class="search-wrap reveal">
+<div class="search-wrap reveal" style="position:relative; z-index:1050;">
   <div style="position:relative; width:100%; max-width:540px;">
     <div class="search-box">
       <input type="text" id="buscador-input" placeholder="Buscar trámite, sede u oficina…" aria-label="Buscar" autocomplete="off"/>
       <button type="button" id="buscador-btn" aria-label="Buscar"><i class="bi bi-search"></i></button>
     </div>
     <div id="buscador-resultados" style="
-      display:none; position:absolute; z-index:200;
+      display:none; position:absolute; z-index:1050;
       background:#fff; border:1px solid #ddd; border-top:none;
       border-radius:0 0 10px 10px; width:100%;
       box-shadow:0 8px 24px rgba(0,0,0,.12); overflow:hidden;
